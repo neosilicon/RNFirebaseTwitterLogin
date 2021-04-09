@@ -102,7 +102,7 @@ Default start screen for React Native app
 Change the UI of this front page by changing App.js and the page will look like this. 
 
 Code View: — 
-render() {
+`render() {
     const { isLoggedIn } = this.state
     return (
       <View style={styles.container} padder>
@@ -121,10 +121,10 @@ render() {
       </View>
     )
   }
-}
+}`
 // styles for this page
 
-const styles = StyleSheet.create({
+`const styles = StyleSheet.create({
   button: {
     backgroundColor: '#1b95e0',
     color: 'white',
@@ -144,9 +144,11 @@ const styles = StyleSheet.create({
     textAlign: 'justify', paddingVertical: 32, fontSize: 20, color: 'white'
   },
   enappd: { textDecorationLine: 'underline', fontWeight: 'bold', color: 'green' }
-})
+})`
+
 view raw
-twitterView.js hosted with ❤ by GitHub
+twitterView.js 
+https://gist.github.com/mdshadman/0becb95584d2f627e77495d6fb44419d#file-twitterview-js
 
 Result: — 
 
@@ -194,21 +196,21 @@ It may take up to 72 hrs to verify your developer's account, so stay calm and co
 
     Update android/build.gradle with latest versions. My configuration is
 
-buildscript {
+`buildscript {
 ext {
 buildToolsVersion = "28.0.3"
 minSdkVersion = 16
 compileSdkVersion = 28
 targetSdkVersion = 28
 supportLibVersion = "28.0.0"
-}
+}`
 ...
-dependencies {
+`dependencies {
 classpath 'com.android.tools.build:gradle:3.4.1' // <--- use this version or newer
 classpath 'com.google.gms:google-services:4.3.0' // <--- use this version or newer
-}
+}`
 ...
-allprojects {
+`allprojects {
 repositories {
 mavenLocal()
 google() // <--- make sure this is included
@@ -218,12 +220,12 @@ maven {
 url "$rootDir/../node_modules/react-native/android"
 }
 }
-}
+}`
 
     Update android/app/build.gradle dependencies. My configuration looks like this
 
 ...
-dependencies {
+`dependencies {
 implementation fileTree(dir: "libs", include: ["*.jar"])
 implementation "com.android.support:appcompat-v7:23.0.1"
 implementation "com.facebook.react:react-native:+"
@@ -231,7 +233,7 @@ implementation project(':react-native-twitter-signin')/ <--- add this line
 
 }
 
-apply plugin: 'com.google.gms.google-services' // <--- this should be the last line
+apply plugin: 'com.google.gms.google-services' // <--- this should be the last line`
 
 Now let’s setup react-native-firebase authentication in your application — 
 Connect Firebase to your React Native app using react-native-firebase
@@ -242,7 +244,7 @@ React-native-firebase also recommends using react-native-twitter-signinfor Twitt
 
     Install react-native-firebasepackage using
 
-$ yarn add react-native-firebase
+`$ yarn add react-native-firebase`
 
 This installs the package, but it still needs to be connected to your android app properly
 Modify Android config files
@@ -251,20 +253,20 @@ If you have done the previous steps (in Step 4.4) correctly, then you only need 
 
     Add following Firebase modules in dependencies in android/app/build.gradle
 
-dependencies {
+`dependencies {
 .....
 implementation project(':react-native-firebase')
 implementation "com.google.android.gms:play-services-base:17.1.0"
 implementation "com.google.firebase:firebase-core:17.0.9"
 implementation 'com.google.firebase:firebase-auth:19.0.0'
 ....
-}
+}`
 
 Troubleshooting — If you face issues in the above settings, visit the documentation of react-native-firebase to get detailed steps for your RN versions.
 
     For older versions of React Native, in MainApplication.java you should have the following code. For my version 0.60.5, there is a need to edit MainApplication.java
 
-import com.goldenowl.twittersignin.TwitterSigninPackage; // <---
+`import com.goldenowl.twittersignin.TwitterSigninPackage; // <---
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -278,12 +280,12 @@ packages.add(new RNFirebaseAuthPackage());// <-- this needs to be in the list
 ) 
 );
 }
-......}
+......}`
 
 Wow, you have done well. Now, you are all set to take the taste of your own cooked food!
 
 Code for Twitter Signin : — 
-twitterLogin = async () => {
+`twitterLogin = async () => {
     try {
       await RNTwitterSignIn.init(TwitterKeys.TWITTER_CONSUMER_KEY, TwitterKeys.TWITTER_CONSUMER_SECRET);
 
@@ -302,15 +304,17 @@ twitterLogin = async () => {
     } catch (e) {
       console.error(e);
     }
-  }
+  }`
 view raw
-twitterLigin.js hosted with ❤ by GitHub
+twitterLigin.js 
+https://gist.github.com/mdshadman/a3b1c33ec5a57df8e6c2975d8a3f030b#file-twitterligin-js
 
-Note, firebase.auth().signInWithCredential is the method used to store user credentials in the back-end.
+Note, `firebase.auth().signInWithCredential` is the method used to store user credentials in the back-end.
 
 Here, 
 
-TwitterKeys.TWITTER_CONSUMER_KEY = api key of the application TdewitterKeys.TWITTER_CONSUMER_SECRET = secret key of the app
+`TwitterKeys.TWITTER_CONSUMER_KEY` = api key of the application 
+`TdewitterKeys.TWITTER_CONSUMER_SECRET` = secret key of the app
 
 You can get both keys after creating the twitter developer’s account and registering the app on that. To create a developers account go here.
 
