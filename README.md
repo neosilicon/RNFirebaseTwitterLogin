@@ -6,22 +6,16 @@ Steps for Twitter authentication
 
 We will follow these step-by-step instructions to create our React Native app with Twitter authentication
 
-Step 1: Create a Firebase Project and Add android platform
-
-‌Step 2: Enable Twitter Sign-In in Firebase project
-
-Step 3: Create a Basic React Native app
-
-‌Step 4: Install the react-native-twitter-signin package for Twitter Login
-
-Step 5: Implement Twitter auth functions in RN app
-
-Step 6: Test your app on Android
-
-Step 7: Use Firebase to store user info and handle Auth
+* Step 1: Create a Firebase Project and Add android platform
+* Step 2: Enable Twitter Sign-In in Firebase project
+* Step 3: Create a Basic React Native app
+* Step 4: Install the react-native-twitter-signin package for Twitter Login
+* Step 5: Implement Twitter auth functions in RN app
+* Step 6: Test your app on Android
+* Step 7: Use Firebase to store user info and handle Auth
 
 So let’s jump right in
-Step 0: Create a SHA-1 Signature
+###Step 0: Create a SHA-1 Signature
 
     This is an important step where many developers commit mistake. That’s why Step 0
 
